@@ -53,24 +53,7 @@ $config = [
             'enablePrettyUrl' => true,
             //'enableStrictParsing' => true,
             'showScriptName' => false,
-
-
-
-
             'rules' => [
-//                    new GroupUrlRule([
-//                        'prefix' => 'api',
-//                        'rules' => [
-//                            'class' => 'yii\rest\UrlRule',
-//                            'controller' => 'user',
-//                        ],
-//                    ]),
-
-                      [
-                          'class' => 'yii\rest\UrlRule',
-                          'controller' => 'user',
-                          'prefix' => 'api',
-                      ],
                       [
                           'class' => 'yii\rest\UrlRule',
                           'controller' => 'client',
@@ -81,8 +64,6 @@ $config = [
                           'controller' => 'state',
                           'prefix' => 'api',
                       ],
-//                    'class' => 'yii\rest\UrlRule', 'controller' => 'client',
-//                    'class' => 'yii\rest\UrlRule', 'controller' => 'state'
             ],
         ],
 

@@ -16,9 +16,16 @@ class Client extends ActiveRecord implements ResourceInterface {
         return '{{clients}}';
     }
 
-    public function defaultScope()
+    public function rules()
     {
-        return array('with' => 'state');
+        return [
+          ['name' => 'safe'],
+          ['id_state' => 'safe'],
+          ['status' => 'safe'],
+//          'name' => 'safe',
+//          'id_state' => 'safe',
+//          'status' => 'safe',
+        ];
     }
 
     public function getState()
