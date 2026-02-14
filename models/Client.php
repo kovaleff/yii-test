@@ -1,9 +1,13 @@
 <?php
 namespace app\models;
 
+use tuyakhov\jsonapi\ResourceInterface;
+use tuyakhov\jsonapi\ResourceTrait;
 use yii\db\ActiveRecord;
 use app\models\State;
-class Client extends ActiveRecord{
+class Client extends ActiveRecord implements ResourceInterface {
+
+    use ResourceTrait;
 
     const CLIENT_ACTIVE = 0;
     const CLIENT_INACTIVE = 1;
@@ -11,6 +15,12 @@ class Client extends ActiveRecord{
     public static function tableName(): string {
         return '{{clients}}';
     }
+
+    public function defaultScope()
+    {
+        return array('with' => 'state');
+    }
+
     public function getState()
     {
         return $this->hasOne(State::class, ['id' => 'id_state']);
